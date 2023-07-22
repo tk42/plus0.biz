@@ -1,5 +1,3 @@
 #!/bin/bash
-export LANG=C
-find . -type f -name "*.js" -print0 | xargs -0 sed -i '' 's@,(function(){var t=this,e=t.$createElement,n=t._self._c||e;return n("a",{attrs:{href:t.href,target:"_blank"}},\[n("img",{attrs:{src:"https://storage.googleapis.com/studio-preview/assets/banner.png",alt:"banner",height:"18"}})\])})@@g'
-
-mv ./docs/*.html ./docs/index.html
+# replace "z-index: 2000;' with "z-index: -2000;' in index.html
+sed -i '' 's@z-index: 2000;@z-index: -2000;@g' ./index.html
